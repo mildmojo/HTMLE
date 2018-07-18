@@ -1,4 +1,4 @@
 #!/bin/sh
 cd "$(dirname "$0")"
 
-grunt upload-itch
+npx grunt upload-itch

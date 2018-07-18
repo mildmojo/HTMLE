@@ -1,4 +1,4 @@
 #!/bin/sh
 cd "$(dirname "$0")"
 
-grunt runall
+npx grunt runall

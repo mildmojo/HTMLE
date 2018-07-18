@@ -1,4 +1,4 @@
 #!/bin/sh
 cd "$(dirname "$0")"
 
-grunt upload-steam
+npx grunt upload-steam

@@ -1,3 +1,3 @@
 @setlocal enableextensions
 @cd /d "%~dp0"
-start grunt upload-phonegap
+start npx grunt upload-phonegap

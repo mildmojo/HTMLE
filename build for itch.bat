@@ -1,3 +1,3 @@
 @setlocal enableextensions
 @cd /d "%~dp0"
-start grunt itch
+start npx grunt itch

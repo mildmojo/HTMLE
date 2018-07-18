@@ -10,17 +10,9 @@
 
 2) **Download the HTMLE zip, and extract it where you like on your computer.**
 
-3) **Install Grunt**
-On PC: right-click "install grunt.bat" and select "Run as administrator"
-On Mac: double click "install grunt.command"
-In Terminal: Type "npm install -g grunt-cli" and hit enter
-
-*The window will close when it's finished*
-*You may see some "warnings" during the installation but it'll be fine.*
-
 4) **Install HTMLE files**
 On PC: right-click "install htmle.bat" and select "Run as administrator"
-On Mac: double click "install htmle.command"
+On Mac/Linux: double click "install htmle.command"
 In Terminal: Type "npm install" and hit enter
 
 *This task will take a while to run, as it downloads things. It'll close when it's finished*
@@ -62,8 +54,8 @@ You can use a free online tool to make Windows/mac icons here: [https://iconvert
 
 3) **Run the compiler:**
 On PC: right-click "build for desktop.bat" and select "Run as administrator"
-On Mac: double click "build for desktop.command"
-In Terminal: Type "grunt desktop" and hit enter
+On Mac/Linux: double click "build for desktop.command"
+In Terminal: Type "npx grunt desktop" and hit enter
 
 *This task compiles src/main to dist/desktop.*
 
@@ -83,13 +75,13 @@ YOUR_ITCH_ACCOUNT/YOUR_ITCH_GAME_URL
 
 4) **Run the compiler:**
 On PC: right-click "build for itch.bat" and select "Run as administrator"
-On Mac: double click "build for itch.command"
-In Terminal: "grunt itch" and hit enter
+On Mac/Linux: double click "build for itch.command"
+In Terminal: "npx grunt itch" and hit enter
 
 5) **Run the uploader:**
 On PC: right-click "upload to itch.bat" and select "Run as administrator"
-On Mac: double click "upload to itch.command"
-In Terminal: "grunt upload-itch" and hit enter
+On Mac/Linux: double click "upload to itch.command"
+In Terminal: "npx grunt upload-itch" and hit enter
 
 ---
 
@@ -130,13 +122,13 @@ steam_appid.txt
 
 3) **Run the compiler:**
 On PC: right-click "build for steam.bat" and select "Run as administrator"
-On Mac: double click "build for steam.command"
-In Terminal: Type "grunt steam" and hit enter
+On Mac/Linux: double click "build for steam.command"
+In Terminal: Type "npx grunt steam" and hit enter
 
 5) **Run the uploader:**
 On PC: right-click "upload to steam.bat" and select "Run as administrator"
-On Mac: double click "upload to steam.command"
-In Terminal: "grunt upload-steam" and hit enter
+On Mac/Linux: double click "upload to steam.command"
+In Terminal: "npx grunt upload-steam" and hit enter
 
 
 ---
@@ -160,13 +152,13 @@ PHONEGAP_ANDROID_KEYSTORE_PASSWORD
 
 4) **Run the compiler:**
 On PC: right-click "build for phonegap.bat" and select "Run as administrator"
-On Mac: double click "build for phonegap.command"
-In Terminal: Type "grunt phonegap" and hit enter
+On Mac/Linux: double click "build for phonegap.command"
+In Terminal: Type "npx grunt phonegap" and hit enter
 
 5) **Run the uploader:**
 On PC: right-click "upload to phonegap.bat" and select "Run as administrator"
-On Mac: double click "upload to phonegap.command"
-In Terminal: "grunt upload-phonegap" and hit enter
+On Mac/Linux: double click "upload to phonegap.command"
+In Terminal: "npx grunt upload-phonegap" and hit enter
 
 Large files might time out using the uploader. If this happens, you'll need to upload the zip file from the /dist folder manually through the web interface.
 
@@ -175,8 +167,8 @@ Large files might time out using the uploader. If this happens, you'll need to u
 ## Build and upload to all platforms
 **Congratulations! If you've made it this far, you should be able to run the 'build and upload all' script, which does EVERYTHING at once!**
 On PC: right-click "build and upload all.bat" and select "Run as administrator"
-On Mac: double click "build and upload all.command"
-In Terminal: Type "grunt runall" and hit enter
+On Mac/Linux: double click "build and upload all.command"
+In Terminal: Type "npx grunt runall" and hit enter
 
 ---
 

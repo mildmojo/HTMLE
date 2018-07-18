@@ -1,3 +1,3 @@
 @setlocal enableextensions
 @cd /d "%~dp0"
-start grunt upload-itch
+start npx grunt upload-itch
