@@ -2,6 +2,7 @@ cache/
 dist/
 node_modules/
 temp/
+htmle_app/dist
 config.json
 lib
 greenworks.js
