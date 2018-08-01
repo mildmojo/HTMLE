@@ -9,8 +9,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-string-replace');
 
 	let config;
+	let htmleAppConfig;
 	try {
 		config = JSON.parse(require('fs').readFileSync('./config.json', 'utf8'));
+		htmleAppConfig = JSON.parse(require('fs').readFileSync('./htmle_app/config.json', 'utf8'));
 	} catch (err) {
 		console.warn('Config file not found, see README.md if compliling for PhoneGap or Itch');
 		// Use a dummy config object so desktop building doesn't fail.
@@ -20,7 +22,7 @@ module.exports = function(grunt) {
 			"GAME_VERSION": "1.0.0",
 			"GAME_WINDOW_TITLE": "HTMLE Example App",
 			"GAME_DESCRIPTION": "This is an example game.",
-						
+
 			"YOUR_WEBSITE": "http://gritfish.itch.io/htmle",
 			"YOUR_EMAIL": "press@gritfish.net",
 			"YOUR_NAME": "John Kane",
@@ -31,7 +33,7 @@ module.exports = function(grunt) {
 			"PHONEGAP_IOS_PASSWORD": "iossigningpassword",
 			"PHONEGAP_ANDROID_PASSWORD": "androidsigningpassword",
 			"PHONEGAP_ANDROID_KEYSTORE_PASSWORD": "keystorepassword",
-			
+
 			"ITCH_ACCOUNT": "itchusername",
 			"ITCH_GAME_URL": "gameuristem",
 
@@ -81,7 +83,7 @@ module.exports = function(grunt) {
 			}
 		},
 
-		// Clears folders before 
+		// Clears folders before
 		clean: {
 			all: [
 				'./dist/'+`${config.GAME_NAME}`+'desktop - '+`${config.GAME_VERSION}`,
@@ -155,6 +157,7 @@ module.exports = function(grunt) {
 			builddesktop:	'node build.js desktop "'+`${config.GAME_NAME}`+'" "'+`${config.GAME_VERSION}`+'"',
 			builditch:		'node build.js itch "'+`${config.GAME_NAME}`+'" "'+`${config.GAME_VERSION}`+'"',
 			buildsteam:		'node build.js steam "'+`${config.GAME_NAME}`+'" "'+`${config.GAME_VERSION}`+'"',
+			buildhtmle:		'node build.js htmle "'+`${htmleAppConfig.GAME_NAME}`+'" "'+`${htmleAppConfig.GAME_VERSION}`+'"',
 
 			butlerlogin: 	'butler login',
 			butlerwin64: 	`butler push "dist/${config.GAME_NAME}_itch - ${config.GAME_VERSION}/${config.GAME_NAME}/win64" ${config.ITCH_ACCOUNT}/${config.ITCH_GAME_URL}:win64 --userversion ${config.GAME_VERSION}`,
@@ -175,7 +178,8 @@ module.exports = function(grunt) {
 	grunt.registerTask('itch', 				['clean:itch', 'copy:itch', 'copy:itchOverrides', 'string-replace', 'exec:builditch']);
 	grunt.registerTask('phonegap',			['clean:phonegap', 'copy:phonegap', 'copy:phonegapOverrides', 'string-replace', 'compress:phonegap']);
 	grunt.registerTask('steam', 			['clean:steam', 'copy:steam', 'copy:steamOverrides', 'string-replace', 'exec:buildsteam', 'copy:steamContentBuilder']);
-	
+	grunt.registerTask('htmle', 			['exec:buildhtmle']);
+
 	grunt.registerTask('upload-itch',		['exec:butlerlogin', 'exec:butlerwin64', 'exec:butlermac', 'exec:butlerlinux64', 'exec:butlerandroid']);
 	grunt.registerTask('upload-phonegap',	['phonegap-build']);
 	grunt.registerTask('upload-steam',		['exec:uploadsteam']);
