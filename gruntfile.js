@@ -186,5 +186,23 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('runall', 			['cleanfolders', 'desktop', 'steam', 'itch', 'phonegap', 'upload-phonegap', 'copy:itchAndroid', 'upload-itch', 'upload-steam']);
 
+	grunt.registerTask('default', function() {
+		grunt.log.writeln();
+		grunt.log.writeln('Usage: grunt <task>');
+		grunt.log.writeln();
+		grunt.log.writeln('Tasks:');
+		grunt.log.writeln(`     cleanfolders - Delete all builds and temp folders for version ${config.GAME_VERSION}`);
+		grunt.log.writeln('            setup - Create folder structure for builds');
+		grunt.log.writeln('          desktop - Build for PC/Mac/Linux');
+		grunt.log.writeln('             itch - Build for PC/Mac/Linux with Itch.io');
+		grunt.log.writeln('         phonegap - Build for Android and iOS (step 1)');
+		grunt.log.writeln('            steam - Build for PC/Mac/Linux with Steam SDK');
+		grunt.log.writeln('            htmle - Build the HTMLE GUI');
+		grunt.log.writeln('      upload-itch - Upload to Itch.io');
+		grunt.log.writeln('  upload-phonegap - Upload to build with Phonegap.com (step 2)');
+		grunt.log.writeln('     upload-steam - Upload to Steam');
+		grunt.log.writeln('           runall - Build and upload to all platforms!');
+	});
+
 };
 
