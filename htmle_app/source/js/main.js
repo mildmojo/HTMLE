@@ -11,28 +11,28 @@ function openLink(e) {
 }
 
 function buildDesktop() {
-	// TODO: run grunt task
-	grunt('desktop');
+	disableButtons();
+	grunt('desktop').then(enableButtons);
 }
 
 function buildItch() {
-	// TODO: run grunt task
-	grunt('itch');
+	disableButtons();
+	grunt('itch').then(enableButtons);
 }
 
 function buildSteam() {
-	// TODO: run grunt task
-	grunt('steam');
+	disableButtons();
+	grunt('steam').then(enableButtons);
 }
 
 function uploadItch() {
-	// TODO: run grunt task
-	grunt('upload-itch');
+	disableButtons();
+	grunt('upload-itch').then(enableButtons);
 }
 
 function uploadSteam() {
-	// TODO: run grunt task
-	grunt('upload-steam');
+	disableButtons();
+	grunt('upload-steam').then(enableButtons);
 }
 
 function grunt(task) {
@@ -45,9 +45,22 @@ function grunt(task) {
 	gruntProc.stderr.on('data', data => {
 		log(`*** ${data.toString()}`);
 	});
-	gruntProc.on('exit', code => {
-		log(`done! (${code})`);
+	return new Promise(resolve => {
+		gruntProc.on('exit', code => {
+			log(`done! (${code})`);
+			resolve(code);
+		});
 	});
+}
+
+function disableButtons() {
+	const buttons = document.querySelectorAll('button');
+	for (button of buttons) button.disabled = true;
+}
+
+function enableButtons() {
+	const buttons = document.querySelectorAll('button');
+	for (button of buttons) button.disabled = false;
 }
 
 $(function() {
